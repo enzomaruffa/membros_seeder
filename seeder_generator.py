@@ -16,15 +16,20 @@ for index, row in df.iterrows():
 	facebook = row['Facebook']
 	linkedin = row['LinkedIn']
 
-	if (facebook == 'Nulo'):
+	if (facebook == 'Nulo' or (type(facebook) == type(1.1) and np.isnan(facebook))):
 		facebook = ""
 
-	if (linkedin == 'Nulo'):
+	facebook.replace("https://www.facebook.com/", "")
+	facebook.replace("http://www.facebook.com/", "")
+
+	if (linkedin == 'Nulo' or (type(linkedin) == type(1.1) and np.isnan(linkedin))):
 		linkedin = ""
+
+	linkedin.replace("https://www.linkedin.com/in/", "")
+	linkedin.replace("http://www.linkedin.com/in/", "")
 
 	email = row['Email']
 	telefone = row['Telefone']
-	#foto = row['Foto']
-	foto = "criar coluna maneira luiz!!"
+	foto = row['Foto']
 
 	output.write(seed.format(nome, diretoria, cargo, facebook, linkedin, email, telefone, foto).replace('nan', '')+"\n")
