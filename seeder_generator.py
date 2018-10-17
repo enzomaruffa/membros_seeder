@@ -19,14 +19,15 @@ for index, row in df.iterrows():
 	if (facebook == 'Nulo' or (type(facebook) == type(1.1) and np.isnan(facebook))):
 		facebook = ""
 
-	facebook.replace("https://www.facebook.com/", "")
-	facebook.replace("http://www.facebook.com/", "")
+	print('antes ' + facebook)
+
+	facebook = facebook.replace("https://www.facebook.com/", "").replace("http://www.facebook.com/", "")
+	print("depois " + facebook)
 
 	if (linkedin == 'Nulo' or (type(linkedin) == type(1.1) and np.isnan(linkedin))):
 		linkedin = ""
 
-	linkedin.replace("https://www.linkedin.com/in/", "")
-	linkedin.replace("http://www.linkedin.com/in/", "")
+	linkedin = linkedin.replace("https://www.linkedin.com/in/", "").replace("http://www.linkedin.com/in/", "")
 
 	email = row['Email']
 	telefone = row['Telefone']
